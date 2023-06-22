@@ -1,4 +1,4 @@
-package com.example.web_api;
+package com.example.web_api.student;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
-public class User {
+public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +24,15 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    private int age;
 
-    public User(String name, String email) {
+    @Column(nullable = false)
+    private String major;
+
+    public Student(String name, String email, int age, String major) {
         this.name = name;
         this.email = email;
+        this.age= age;
+        this.major = major;
     }
 }
